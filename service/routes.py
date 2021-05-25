@@ -55,6 +55,7 @@ def confirm_payment():
 						# Generating sign 
 						data['sign'] = get_invoice_sign(data)
 						url = 'https://core.piastrix.com/invoice/create'
+						# Getting service response
 						res = requests.post(url, json=data)
 						parsed_response = res.json()
 						if parsed_response['error_code'] != 0:
@@ -64,7 +65,7 @@ def confirm_payment():
 									form=form,
 									data=parsed_response['message']
 								)
-						# Another templated rendered for confirmation
+						# Another template rendered for confirmation
 						return render_template(
 							'confirm_invoice.html', 
 							data=parsed_response['data']['data'], 
