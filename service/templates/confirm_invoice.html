@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+	<h1>Confirm invoice</h1>
+	<form method="{{ method }}" action="{{ url }}">
+		{% for key, value in data.items() %}
+			<label for="{{ key }}">{{ key.capitalize() }}:</label><br>
+			<input type="text" id="{{ key }}" name="{{ key }}" value="{{ value }}"><br>
+		{% endfor %}
+		<br>
+	    <input type="submit" value="Confirm">
+	</form>
+{% endblock %}
