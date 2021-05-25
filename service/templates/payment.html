@@ -1,20 +1,16 @@
 {% extends 'layout.html' %}
 
 {% block main %}
-	<form method="POST" action="">
-		<label for="amount">Amount:</label><br>
-		<input type="number" name="amount" id="amount" value="23.15" step="0.01"><br>
-		<label for="currency">Currency:</label><br>
-		<select id="currency" name="currency">
-			<option value="978">EUR</option>
-			<option value="840">USD</option>
-			<option value="643">RUR</option>
-		</select><br>
-		<label for="description">Description:</label><br>
-		<textarea id="description" name="description" cols="30" rows="10">Test bill</textarea><br>
-		<input type="hidden" name="shop_id" value="5">
-		<input type="hidden" name="shop_order_id" value="4126">
-		<input type="submit" value="Pay"> 
+	<form method="POST">
+		{{ form.amount.label }}<br>
+		{{ form.amount }}<br>
+		{{ form.currency.label }}<br>
+		{{ form.currency }}<br>
+		{{ form.description.label }}<br>
+		{{ form.description(cols="30", rows="10") }}<br>
+		{{ form.shop_id }}
+		{{ form.shop_order_id }}
+		{{ form.submit }}
 	</form>
 	{% if data %}
 		<p>{{ data }}</p>
