@@ -2,14 +2,26 @@
 
 {% block main %}
 	<form method="POST">
+		{{ form.hidden_tag() }}
+
 		{{ form.amount.label }}<br>
+		{% if form.amount.errors %}
+			{% for error in form.amount.errors %}
+				<span>{{ error }}</span><br>
+			{% endfor %}
+		{% endif %}
 		{{ form.amount }}<br>
+
 		{{ form.currency.label }}<br>
 		{{ form.currency }}<br>
+
 		{{ form.description.label }}<br>
 		{{ form.description(cols="30", rows="10") }}<br>
+
 		{{ form.shop_id }}
+
 		{{ form.shop_order_id }}
+
 		{{ form.submit }}
 	</form>
 	{% if data %}
