@@ -1,0 +1,76 @@
+2021-05-26 17:13:53,134 | INFO | werkzeug |  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-05-26 17:14:08,550 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:14:08] "GET / HTTP/1.1" 200 -
+2021-05-26 17:14:11,585 | ERROR | service | Exception on / [POST]
+Traceback (most recent call last):
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: payment
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "E:\Programming\portfolio\flask_service\venv\Scripts\flask-service\service\routes.py", line 36, in payment
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\session.py", line 829, in commit
+    self._prepare_impl()
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3262, in flush
+    self._flush(objects)
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3402, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\session.py", line 3362, in _flush
+    flush_context.execute()
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 455, in execute
+    rec.execute(self)
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 629, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1582, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 329, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1451, in _execute_clauseelement
+    ret = self._execute_context(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1813, in _execute_context
+    self._handle_dbapi_exception(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1994, in _handle_dbapi_exception
+    util.raise_(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1770, in _execute_context
+    self.dialect.do_execute(
+  File "E:\Programming\portfolio\flask_service\venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: payment
+[SQL: INSERT INTO payment (amount, currency, description, timestamp) VALUES (?, ?, ?, ?)]
+[parameters: ('10.00', 'EUR', 'Test invoice', '2021-05-26 17:14:11.571720')]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+2021-05-26 17:14:11,856 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:14:11] "[35m[1mPOST / HTTP/1.1[0m" 500 -
+2021-05-26 17:15:39,236 | INFO | werkzeug |  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-05-26 17:15:46,505 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:15:46] "GET / HTTP/1.1" 200 -
+2021-05-26 17:15:48,854 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:15:48] "[32mPOST / HTTP/1.1[0m" 302 -
+2021-05-26 17:15:53,567 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:15:53] "GET / HTTP/1.1" 200 -
+2021-05-26 17:15:59,625 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:15:59] "[32mPOST / HTTP/1.1[0m" 302 -
+2021-05-26 17:16:06,718 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:16:06] "GET / HTTP/1.1" 200 -
+2021-05-26 17:16:11,301 | INFO | werkzeug | 127.0.0.1 - - [26/May/2021 17:16:11] "POST / HTTP/1.1" 200 -
