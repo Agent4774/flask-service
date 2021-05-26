@@ -76,7 +76,7 @@ def payment():
 						# Adding payment info to database
 						payment = Payment(
 							amount=data['amount'],
-							currency='RUR',
+							currency='RUB',
 							description=data['description']
 						)
 						db.session.add(payment)
