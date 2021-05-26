@@ -23,7 +23,7 @@ class PaymentForm(FlaskForm):
 			choices=[
 				('978', 'EUR'), 
 				('840', 'USD'), 
-				('643', 'RUR')
+				('643', 'RUB')
 			]
 		)
 		description = TextAreaField(
